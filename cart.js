@@ -1,5 +1,5 @@
 /**
- * ประกาศตัวแปร cart เป็น Object ว่างใช้เก็บข้อมูลสินค้าในรถเข็นเริ่มต้น
+ * ประกาศตัวแปร cart เป็น Object ว่างใช้เก็บข้อมูลสินค้าในรถเข็น
  */
 const cart = {};
 
@@ -19,7 +19,7 @@ document.querySelectorAll(".add-to-cart").forEach((button) => {
   });
 });
 
-/**ฟังก์ชันนี้มีหน้าที่ในการอัปเดตและแสดงผลของรถเข็นในหน้าเว็บให้เป็นตรงกับข้อมูลในตัวแปล Cart={} โดยผู้ใช้จะสามารถเห็นสถานะปัจจุบันของรถเข็นได้ และเพิ่มปุ่มเพื่อลบสินค้าออกได้ จะมีปุ่มลบสินค้าแต่ละชิ้นที่อยู่ในตารางของรถเข็น */
+/**ฟังก์ชันนี้มีหน้าที่ในการอัปเดตและแสดงผลของรถเข็นในหน้าเว็บให้เป็นตรงกับข้อมูลในตัวแปล Cart={} โดยผู้ใช้จะสามารถเห็นสถานะปัจจุบันของรถเข็นได้ และเพิ่มปุ่มเพื่อลบสินค้า (จะมีปุ่มลบสินค้าแต่ละชิ้นที่อยู่ในตารางCart) */
 function updateCartDisplay() {
   const cartElement = document.getElementById("cart");
   cartElement.innerHTML = "";
@@ -96,7 +96,7 @@ function updateCartDisplay() {
   }
 }
 
-/** จะเพิ่ม event ให้กับ element ที่มี id printCart เมื่อมีการคลิก Print Cart Recipt บิลใบเสร็จของสินค้า. */
+/** จะเพิ่ม event ให้กับ element ที่มี id printCart เมื่อมีการคลิก Print Cart Receipt บิลใบเสร็จของสินค้า. */
 document.getElementById("printCart").addEventListener("click", () => {
   printReceipt("Thank you!", generateCartReceipt());
 });
@@ -146,7 +146,7 @@ function generateProductReceipts() {
   return receiptContent;
 }
 
-/** ฟังก์ชันนี้ใช้สำหรับคำนวณราคารวมของสินค้า Cart ตอน Print Cart Reciept*/
+/** ฟังก์ชันนี้ใช้สำหรับคำนวณราคารวมของสินค้า Cart ตอน Print Cart Reciept และสร้างออกมาเป็นตาราง*/
 function generateCartReceipt() {
   let receiptContent = `
       <style>
