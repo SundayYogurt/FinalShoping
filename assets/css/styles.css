@@ -4,15 +4,13 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(82, 60%, 28%);
+  --first-color: hsl(335, 59%, 28%);
   --title-color: hsl(0, 0%, 15%);
   --text-color: hsl(0, 0%, 35%);
   --body-color: hsl(0, 0%, 95%);
   --container-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
   --small-font-size: .813rem;
@@ -46,11 +44,12 @@ img {
   border: 3px solid #dadada;
 }
 
-button{
+button {
   border: none;
   background: none;
   cursor: pointer;
 }
+
 /*=============== CARD ===============*/
 .container {
   display: grid;
@@ -72,13 +71,20 @@ button{
 .card__img {
   width: 328px;
   border-radius: 1.5rem;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease; /* Add ease for smoother transitions */
+}
+
+/* Fix the typo here */
+.card__img:hover {
+  transform: scale(1.1);
 }
 
 .card__data {
   width: 280px;
   background-color: var(--container-color);
   padding: 1.5rem 2rem;
-  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
   border-radius: 1rem;
   position: absolute;
   bottom: -9rem;
@@ -111,13 +117,16 @@ button{
 
 .card__button:hover {
   text-decoration: underline;
+  backdrop-filter: blur(5px);
+  transform: scale(1.1);
 }
 
 /* Naming animations in hover */
 .card__article:hover .card__data {
   animation: show-data 1s forwards;
+  backdrop-filter: blur(5px);
   opacity: 1;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 .card__article:hover {
@@ -132,13 +141,88 @@ button{
   animation: remove-data 1s forwards;
 }
 
+.category__container {
+  display: flex;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.category__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+  border: 1px solid var(--first-color);
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  transition: .3s;
+}
+
+.category__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: 1.5rem; /* เพิ่มระยะห่างจากเนื้อหาด้านล่าง */
+}
+
+.category__article {
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.category__article img {
+  border-radius: 1.5rem;
+}
+
+.category__article .card__data {
+  width: 100%;
+  padding: 1rem 1.5rem;
+}
+
+.category__article .card__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: .5rem;
+}
+
+.category__article .card__description {
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.category__article .card__button {
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.category__article:hover .card__data {
+  animation: show-data 1s forwards;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.category__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
 /* Card animation */
 @keyframes show-data {
+  0% {
+    transform: translateY(.5rem);
+  }
   50% {
     transform: translateY(-10rem);
   }
   100% {
-    transform: translateY(-7rem);
+    transform: translateY(-10rem);
   }
 }
 
@@ -150,7 +234,7 @@ button{
 
 @keyframes remove-data {
   0% {
-    transform: translateY(-7rem);
+    transform: translateY(-10rem);
   }
   50% {
     transform: translateY(-10rem);
@@ -191,7 +275,6 @@ button{
   }
 }
 
-
 /* For large devices */
 @media screen and (min-width: 1120px) {
   .container {
@@ -201,9 +284,11 @@ button{
   .card__container {
     grid-template-columns: repeat(3, 1fr);
   }
+  
   .card__img {
     width: 448px;
   }
+
   .card__data {
     width: 316px;
     padding-inline: 2.5rem;

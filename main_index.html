@@ -1,59 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SANGKONG - SHOP</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="main_index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
         <nav>
-            <h1>
-                SANGKONG
-            </h1>
-            <ul>
+            <h1>Carebaer Shop</h1>
+            <ul id="nav-links">
                 <li><a href="main_index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
+            <!-- Hamburger Icon -->
+            <div id="hamburger" class="hamburger-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="card__container">
-           <article class="card__article">
-              <img src="./product_img/main-1.jpg" alt="image" class="card__img">
-              <div class="card__data">
-                <h2 class="card__title">New Collection 1</h2>
-                 <a href="nb-shop-1.html" class="card__button">Read More</a>
-              </div>
-           </article>
-
-           <article class="card__article">
-              <img src="./product_img/main-2.jpg" alt="image" class="card__img">
-              <div class="card__data">
-                 <h2 class="card__title">New Collection 2</h2>
-                 <a href="nb-shop-2.html" class="card__button">Read More</a>
-              </div>
-           </article>
-
-           <article class="card__article">
-              <img src="./product_img/main-3.jpg" alt="image" class="card__img">
-
-              <div class="card__data">
-                 <h2 class="card__title">New Collection 3</h2>
-                 <a href="nb-shop-3.html" class="card__button">Read More</a>
-              </div>
-           </article>
+    <section class="hero">
+        <div class="hero-content"> 
+            <h1>Carebear Shop <p>cute bear cute doll</p></h1>
+            <img src="./product_img/imageVa.jpg" alt="image" class="hero-img">
         </div>
-     </div>
-    
+    </section>
+
+    <div class="container"> <!-- Corrected the tag here -->
+        <div class="card__container">
+            <article class="card__article">
+                <img src="./product_img/main-1.jpg" alt="image" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">New Collection 1</h2>
+                    <a href="nb-shop-1.html" class="card__button">Read More</a>
+                </div>
+            </article>
+
+            <article class="card__article">
+                <img src="./product_img/main-2.jpg" alt="image" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">New Collection 2</h2>
+                    <a href="nb-shop-2.html" class="card__button">Read More</a>
+                </div>
+            </article>
+
+            <article class="card__article">
+                <img src="./product_img/main-3.jpg" alt="image" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">New Collection 3</h2>
+                    <a href="nb-shop-3.html" class="card__button">Read More</a>
+                </div>
+            </article>
+        </div>
+        <h2 class="category__title">Category</h2>
+        <div class="category__container">
+            <article class="category__article">
+                <img src="./product_img/grumpy.png" alt="image" class="category__img">
+                <div class="category__data">
+                    <h2 class="category__title">Grumpy Bear</h2>
+                    <a href="nb-shop-4.html" class="category__button">Read More</a>
+                </div>
+            </article>
+            <article class="category__article">
+                <img src="./product_img/funshine.png" alt="image" class="category__img">
+                <div class="category__data">
+                    <h2 class="category__title">Funshine Bear</h2>
+                    <a href="nb-shop-5.html" class="category__button">Read More</a>
+                </div>
+            </article>
+
+            <article class="category__article">
+                <img src="./product_img/cheer.png" alt="image" class="category__img">
+                <div class="category__data">
+                    <h2 class="category__title">Cheer Bear</h2>
+                    <a href="nb-shop-6.html" class="category__button">Read More</a>
+                </div>
+            </article>
+        </div>
+    </div> <!-- Close container div -->
+
+    <script>
+        // Select the hamburger icon and navigation menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        // Add event listener for hamburger menu click
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show'); // Toggle the "show" class
+        });
+    </script>
 </body>
-<script>
-    const btn= document.getElementById("btn")
-    btn.addEventListener("click", () => {
-        document.querySelector("header ul").classList.toggle("show")
-    })
-</script>
+
 </html>
